@@ -55,8 +55,8 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 | Name | Description |
 |------|-------------|
-| aws_appautoscaling_policy_down_arn |  |
-| aws_appautoscaling_policy_up_arn |  |
+| aws_appautoscaling_policy_down_arn | ARN of the scale down policy. |
+| aws_appautoscaling_policy_up_arn | ARN of the scale up policy. |
 
 
 
