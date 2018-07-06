@@ -82,39 +82,3 @@ variable "scale_down_cooldown" {
   description = "Period (in seconds) to wait between scale down events."
   default     = "300"
 }
-
-variable "cpu_utilization_high_threshold" {
-  type        = "string"
-  description = "The maximum percentage of CPU utilization average."
-  default     = "80"
-}
-
-variable "cpu_utilization_high_period" {
-  type        = "string"
-  description = "Duration in seconds to evaluate for the CPU Utilization High alarm."
-  default     = "300"
-}
-
-variable "cpu_utilization_high_evaluation_periods" {
-  type        = "string"
-  description = "Number of periods to evaluate for the CPU Utilization High alarm."
-  default     = "1"
-}
-
-variable "cpu_utilization_low_threshold" {
-  type        = "string"
-  description = "The minimum percentage of CPU utilization average."
-  default     = "20"
-}
-
-variable "cpu_utilization_low_period" {
-  type        = "string"
-  description = "Duration in seconds to evaluate for the CPU Utilization Low alarm."
-  default     = "300"
-}
-
-variable "cpu_utilization_low_evaluation_periods" {
-  type        = "string"
-  description = "Number of periods to evaluate for the CPU Utilization Low alarm."
-  default     = "1"
-}
