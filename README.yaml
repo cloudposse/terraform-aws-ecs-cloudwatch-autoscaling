@@ -69,10 +69,19 @@ description: |-
 # How to use this project
 usage: |-
   ```hcl
+  module "autoscaling" {
+    source       = "git::https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.git?ref=tags/0.1.0"
+    name         = "default"
+    namespace    = "cp"
+    stage        = "staging"
+    service_name = "cp-staging-example-service"
+    cluster_name = "cp-staging-example-cluster"
+  }
   ```
 
 # Example usage
-#examples: |-
+examples: |-
+  For a complete usage example, see [terraform-aws-ecs-web-app module](https://github.com/cloudposse/terraform-aws-ecs-web-app/blob/master/main.tf).
 
 # How to get started quickly
 #quickstart: |-

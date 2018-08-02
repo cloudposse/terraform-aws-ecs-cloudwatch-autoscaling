@@ -23,6 +23,6 @@
 
 | Name | Description |
 |------|-------------|
-| aws_appautoscaling_policy_down_arn | ARN of the scale down policy. |
-| aws_appautoscaling_policy_up_arn | ARN of the scale up policy. |
+| scale_down_policy_arn | ARN of the scale down policy. |
+| scale_up_policy_arn | ARN of the scale up policy. |
 
