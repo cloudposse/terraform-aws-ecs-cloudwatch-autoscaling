@@ -1,9 +1,9 @@
-output "aws_appautoscaling_policy_up_arn" {
+output "scale_up_policy_arn" {
   description = "ARN of the scale up policy."
-  value       = "${aws_appautoscaling_policy.up.arn}"
+  value       = "${join("", aws_appautoscaling_policy.up.*.arn)}"
 }
 
-output "aws_appautoscaling_policy_down_arn" {
+output "scale_down_policy_arn" {
   description = "ARN of the scale down policy."
-  value       = "${aws_appautoscaling_policy.down.arn}"
+  value       = "${join("", aws_appautoscaling_policy.down.*.arn)}"
 }
