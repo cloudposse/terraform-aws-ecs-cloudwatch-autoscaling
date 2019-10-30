@@ -6,7 +6,7 @@ namespace = "eg"
 
 stage = "test"
 
-name = "ecs-codepipeline"
+name = "ecs-cloudwatch-autoscaling"
 
 vpc_cidr_block = "172.16.0.0/16"
 
