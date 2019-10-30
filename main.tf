@@ -1,5 +1,5 @@
 module "scale_up_label" {
-  source     = "github.com/cloudposse/terraform-null-label.git?ref=0.16.0"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
   enabled    = var.enabled
   name       = var.name
   namespace  = var.namespace
@@ -10,7 +10,7 @@ module "scale_up_label" {
 }
 
 module "scale_down_label" {
-  source     = "github.com/cloudposse/terraform-null-label.git?ref=0.16.0"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
   enabled    = var.enabled
   name       = var.name
   namespace  = var.namespace
