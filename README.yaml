@@ -18,9 +18,9 @@ github_repo: cloudposse/terraform-aws-ecs-cloudwatch-autoscaling
 
 # Badges to display
 badges:
-  - name: "Build Status"
-    image: "https://travis-ci.org/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg?branch=master"
-    url: "https://travis-ci.org/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling"
+  - name: "Codefresh Build Status"
+    image: "https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-aws-ecs-cloudwatch-autoscaling?type=cf-1"
+    url: "https://g.codefresh.io/public/accounts/cloudposse/pipelines/5db9ecdda510fc74c38f63f3"
   - name: "Latest Release"
     image: "https://img.shields.io/github/release/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg"
     url: "https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/releases"
@@ -68,14 +68,25 @@ description: |-
 
 # How to use this project
 usage: |-
+
+  For a complete example, see [examples/complete](examples/complete).
+
+  For automated tests of the complete example using `bats` and `Terratest`, see [test](test).
+
   ```hcl
-  module "autoscaling" {
-    source       = "git::https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.git?ref=tags/0.1.0"
-    name         = "default"
-    namespace    = "cp"
-    stage        = "staging"
-    service_name = "cp-staging-example-service"
-    cluster_name = "cp-staging-example-cluster"
+  module "ecs_cloudwatch_autoscaling" {
+    source                = "git::https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.git?ref=master"
+    namespace             = "eg"
+    stage                 = "staging"
+    name                  = "app"
+    service_name          = "eg-staging-example-service"
+    cluster_name          = "eg-staging-example-cluster"
+    min_capacity          = 1
+    max_capacity          = 2
+    scale_up_adjustment   = 1
+    scale_up_cooldown     = 60
+    scale_down_adjustment = -1
+    scale_down_cooldown   = 300
   }
   ```
 
@@ -99,3 +110,5 @@ contributors:
     github: "Jamie-BitFlight"
   - name: "Sarkis Varozian"
     github: "sarkis"
+  - name: "Andriy Knysh"
+    github: "aknysh"
