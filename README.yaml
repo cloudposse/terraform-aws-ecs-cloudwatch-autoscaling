@@ -1,4 +1,3 @@
----
 #
 # This is the canonical configuration for the `README.md`
 # Run `make readme` to rebuild the `README.md`
@@ -6,68 +5,51 @@
 
 # Name of this project
 name: terraform-aws-ecs-cloudwatch-autoscaling
-
 # Logo for this project
 #logo: docs/logo.png
 
 # License of this project
 license: "APACHE2"
-
 # Canonical GitHub repo
 github_repo: cloudposse/terraform-aws-ecs-cloudwatch-autoscaling
-
 # Badges to display
 badges:
-  - name: "Codefresh Build Status"
-    image: "https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-aws-ecs-cloudwatch-autoscaling?type=cf-1"
-    url: "https://g.codefresh.io/public/accounts/cloudposse/pipelines/5db9ecdda510fc74c38f63f3"
   - name: "Latest Release"
     image: "https://img.shields.io/github/release/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg"
     url: "https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/releases"
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/badge.svg"
     url: "https://slack.cloudposse.com"
-
 related:
   - name: "terraform-aws-ecs-web-app"
     description: "Terraform module that implements a web app on ECS and supporting AWS resources"
     url: "https://github.com/cloudposse/terraform-aws-ecs-web-app"
-
   - name: "terraform-aws-alb"
     description: "Terraform module to provision a standard ALB for HTTP/HTTP traffic"
     url: "https://github.com/cloudposse/terraform-aws-alb"
-
   - name: "terraform-aws-alb-ingress"
     description: "Terraform module to provision an HTTP style ingress rule based on hostname and path for an ALB"
     url: "https://github.com/cloudposse/terraform-aws-alb-ingress"
-
   - name: "terraform-aws-codebuild"
     description: "Terraform Module to easily leverage AWS CodeBuild for Continuous Integration"
     url: "https://github.com/cloudposse/terraform-aws-codebuild"
-
   - name: "terraform-aws-ecr"
     description: "Terraform Module to manage Docker Container Registries on AWS ECR"
     url: "https://github.com/cloudposse/terraform-aws-ecr"
-
   - name: "terraform-aws-ecs-alb-service-task"
     description: "Terraform module which implements an ECS service which exposes a web service via ALB."
     url: "https://github.com/cloudposse/terraform-aws-ecs-alb-service-task"
-
   - name: "terraform-aws-ecs-codepipeline"
     description: "Terraform Module for CI/CD with AWS Code Pipeline and Code Build for ECS"
     url: "https://github.com/cloudposse/terraform-aws-ecs-codepipeline"
-
   - name: "terraform-aws-ecs-container-definition"
     description: "Terraform module to generate well-formed JSON documents that are passed to the aws_ecs_task_definition Terraform resource"
     url: "https://github.com/cloudposse/terraform-aws-ecs-container-definition"
-
-
 # Short description of this project
 description: |-
   Terraform module for creating alarms for tracking important changes and occurrences from ECS Services.
-
 # How to use this project
-usage: |-
+usage: |2-
 
   For a complete example, see [examples/complete](examples/complete).
 
@@ -89,11 +71,9 @@ usage: |-
     scale_down_cooldown   = 300
   }
   ```
-
 # Example usage
 examples: |-
   For a complete usage example, see [terraform-aws-ecs-web-app module](https://github.com/cloudposse/terraform-aws-ecs-web-app/blob/master/main.tf).
-
 # How to get started quickly
 #quickstart: |-
 #  Here's how to get started...
@@ -101,7 +81,6 @@ examples: |-
 # Other files to include in this README from the project folder
 include:
   - "docs/terraform.md"
-
 # Contributors to this project
 contributors:
   - name: "Erik Osterman"
