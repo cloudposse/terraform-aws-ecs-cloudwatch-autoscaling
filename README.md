@@ -99,21 +99,22 @@ For a complete usage example, see [terraform-aws-ecs-web-app module](https://git
 
 
 
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.0, < 0.14.0 |
-| aws | ~> 2.0 |
-| local | ~> 1.2 |
-| null | ~> 2.0 |
-| template | ~> 2.0 |
+| terraform | >= 0.12 |
+| aws | >= 2.0 |
+| local | >= 1.2 |
+| null | >= 2.0 |
+| template | >= 2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.0 |
+| aws | >= 2.0 |
 
 ## Inputs
 
@@ -142,6 +143,7 @@ For a complete usage example, see [terraform-aws-ecs-web-app module](https://git
 | scale\_down\_policy\_arn | ARN of the scale down policy |
 | scale\_up\_policy\_arn | ARN of the scale up policy |
 
+<!-- markdownlint-restore -->
 
 
 
