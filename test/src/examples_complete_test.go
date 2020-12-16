@@ -78,7 +78,9 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	serviceRoleArn := terraform.Output(t, terraformOptions, "service_role_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-service", serviceRoleArn)
+	// We expect service_role_arn to be empty because of this logic update:
+	// https://github.com/cloudposse/terraform-aws-ecs-alb-service-task/pull/83
+	assert.Equal(t, "", serviceRoleArn)
 
 	// Run `terraform output` to get the value of an output variable
 	taskDefinitionFamily := terraform.Output(t, terraformOptions, "task_definition_family")
