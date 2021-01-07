@@ -1,27 +1,19 @@
 module "scale_up_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
-  enabled    = var.enabled
-  name       = var.name
-  namespace  = var.namespace
-  stage      = var.stage
-  attributes = compact(concat(var.attributes, ["up"]))
-  delimiter  = var.delimiter
-  tags       = var.tags
+  source     = "cloudposse/label/null"
+  version    = "0.22.0"
+  attributes = ["up"]
+  context    = module.this.context
 }
 
 module "scale_down_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
-  enabled    = var.enabled
-  name       = var.name
-  namespace  = var.namespace
-  stage      = var.stage
-  attributes = compact(concat(var.attributes, ["down"]))
-  delimiter  = var.delimiter
-  tags       = var.tags
+  source     = "cloudposse/label/null"
+  version    = "0.22.0"
+  attributes = ["down"]
+  context    = module.this.context
 }
 
 resource "aws_appautoscaling_target" "default" {
-  count              = var.enabled ? 1 : 0
+  count              = module.this.enabled ? 1 : 0
   service_namespace  = "ecs"
   resource_id        = "service/${var.cluster_name}/${var.service_name}"
   scalable_dimension = "ecs:service:DesiredCount"
@@ -30,7 +22,7 @@ resource "aws_appautoscaling_target" "default" {
 }
 
 resource "aws_appautoscaling_policy" "up" {
-  count              = var.enabled ? 1 : 0
+  count              = module.this.enabled ? 1 : 0
   name               = module.scale_up_label.id
   service_namespace  = "ecs"
   resource_id        = "service/${var.cluster_name}/${var.service_name}"
@@ -49,7 +41,7 @@ resource "aws_appautoscaling_policy" "up" {
 }
 
 resource "aws_appautoscaling_policy" "down" {
-  count              = var.enabled ? 1 : 0
+  count              = module.this.enabled ? 1 : 0
   name               = module.scale_down_label.id
   service_namespace  = "ecs"
   resource_id        = "service/${var.cluster_name}/${var.service_name}"
