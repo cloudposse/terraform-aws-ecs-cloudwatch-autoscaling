@@ -1,13 +1,13 @@
 module "scale_up_label" {
   source     = "cloudposse/label/null"
-  version    = "0.22.0"
+  version    = "0.23.0"
   attributes = ["up"]
   context    = module.this.context
 }
 
 module "scale_down_label" {
   source     = "cloudposse/label/null"
-  version    = "0.22.0"
+  version    = "0.23.0"
   attributes = ["down"]
   context    = module.this.context
 }
