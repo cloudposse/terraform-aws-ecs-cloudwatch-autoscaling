@@ -3,32 +3,21 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 
-
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.0 |
-
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
-
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.0 |
-
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-
-| <a name="module_scale_down_label"></a> [scale\_down\_label](#module\_scale\_down\_label) | cloudposse/label/null | 0.24.1 |
-| <a name="module_scale_up_label"></a> [scale\_up\_label](#module\_scale\_up\_label) | cloudposse/label/null | 0.24.1 |
-
 | <a name="module_scale_down_label"></a> [scale\_down\_label](#module\_scale\_down\_label) | cloudposse/label/null | 0.25.0 |
 | <a name="module_scale_up_label"></a> [scale\_up\_label](#module\_scale\_up\_label) | cloudposse/label/null | 0.25.0 |
-
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.24.1 |
 
 ## Resources
