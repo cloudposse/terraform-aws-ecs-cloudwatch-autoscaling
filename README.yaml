@@ -14,12 +14,17 @@ license: "APACHE2"
 github_repo: cloudposse/terraform-aws-ecs-cloudwatch-autoscaling
 # Badges to display
 badges:
-  - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg"
-    url: "https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/releases"
-  - name: "Slack Community"
-    image: "https://slack.cloudposse.com/badge.svg"
-    url: "https://slack.cloudposse.com"
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/releases/latest
+  - name: Last Updated
+    image: https://img.shields.io/github/last-commit/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/commits
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
+
+# List any related terraform modules that this module may be used with or that this module depends on.
 related:
   - name: "terraform-aws-ecs-web-app"
     description: "Terraform module that implements a web app on ECS and supporting AWS resources"
@@ -84,12 +89,4 @@ examples: |-
 include:
   - "docs/terraform.md"
 # Contributors to this project
-contributors:
-  - name: "Erik Osterman"
-    github: "osterman"
-  - name: "Jamie Nelson"
-    github: "Jamie-BitFlight"
-  - name: "Sarkis Varozian"
-    github: "sarkis"
-  - name: "Andriy Knysh"
-    github: "aknysh"
+contributors: []
