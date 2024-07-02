@@ -38,6 +38,8 @@ resource "aws_appautoscaling_policy" "up" {
       scaling_adjustment          = var.scale_up_adjustment
     }
   }
+  
+  depends_on = [aws_appautoscaling_target.default]
 }
 
 resource "aws_appautoscaling_policy" "down" {
@@ -57,4 +59,6 @@ resource "aws_appautoscaling_policy" "down" {
       scaling_adjustment          = var.scale_down_adjustment
     }
   }
+  
+  depends_on = [aws_appautoscaling_target.default]
 }
