@@ -12,12 +12,18 @@ import (
 func TestExamplesComplete(t *testing.T) {
 	t.Parallel()
 
+	randID := strings.ToLower(random.UniqueId())
+	attributes := []string{randID}
+	
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: "../../examples/complete",
 		Upgrade:      true,
 		// Variables to pass to our Terraform code using -var-file options
 		VarFiles: []string{"fixtures.us-east-2.tfvars"},
+		Vars: map[string]interface{}{
+			"attributes": attributes,
+		},
 	}
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
@@ -58,12 +64,12 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	ecsClusterId := terraform.Output(t, terraformOptions, "ecs_cluster_id")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:ecs:us-east-2:126450723953:cluster/eg-test-ecs-cloudwatch-autoscaling", ecsClusterId)
+	assert.Equal(t, "arn:aws:ecs:us-east-2:126450723953:cluster/eg-test-ecs-cloudwatch-autoscaling-" + randID, ecsClusterId)
 
 	// Run `terraform output` to get the value of an output variable
 	ecsClusterArn := terraform.Output(t, terraformOptions, "ecs_cluster_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:ecs:us-east-2:126450723953:cluster/eg-test-ecs-cloudwatch-autoscaling", ecsClusterArn)
+	assert.Equal(t, "arn:aws:ecs:us-east-2:126450723953:cluster/eg-test-ecs-cloudwatch-autoscaling-" + randID, ecsClusterArn)
 
 	// Run `terraform output` to get the value of an output variable
 	ecsExecRolePolicyName := terraform.Output(t, terraformOptions, "ecs_exec_role_policy_name")
@@ -73,7 +79,7 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	serviceName := terraform.Output(t, terraformOptions, "service_name")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling", serviceName)
+	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-" + randID, serviceName)
 
 	// Run `terraform output` to get the value of an output variable
 	serviceRoleArn := terraform.Output(t, terraformOptions, "service_role_arn")
@@ -90,7 +96,7 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	taskExecRoleName := terraform.Output(t, terraformOptions, "task_exec_role_name")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-exec", taskExecRoleName)
+	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-" + randID + "-exec", taskExecRoleName)
 
 	// Run `terraform output` to get the value of an output variable
 	taskExecRoleArn := terraform.Output(t, terraformOptions, "task_exec_role_arn")
@@ -105,15 +111,15 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	taskRoleArn := terraform.Output(t, terraformOptions, "task_role_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-task", taskRoleArn)
+	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-" + randID + "-task", taskRoleArn)
 
 	// Run `terraform output` to get the value of an output variable
 	scaleUpPolicyArn := terraform.Output(t, terraformOptions, "scale_up_policy_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Contains(t, scaleUpPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-up")
+	assert.Contains(t, scaleUpPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-" + randID + "-up")
 
 	// Run `terraform output` to get the value of an output variable
 	scaleDownPolicyArn := terraform.Output(t, terraformOptions, "scale_down_policy_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Contains(t, scaleDownPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-down")
+	assert.Contains(t, scaleDownPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-" + randID + "-down")
 }
