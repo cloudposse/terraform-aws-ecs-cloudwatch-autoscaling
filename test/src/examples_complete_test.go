@@ -118,10 +118,10 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	scaleUpPolicyArn := terraform.Output(t, terraformOptions, "scale_up_policy_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Contains(t, scaleUpPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-up-" + randID)
+	assert.Contains(t, scaleUpPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-" + randID + "-up")
 
 	// Run `terraform output` to get the value of an output variable
 	scaleDownPolicyArn := terraform.Output(t, terraformOptions, "scale_down_policy_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Contains(t, scaleDownPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-down-" + randID)
+	assert.Contains(t, scaleDownPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-" + randID + "-down")
 }
