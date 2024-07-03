@@ -3,19 +3,19 @@ provider "aws" {
 }
 
 module "vpc" {
-  source     = "cloudposse/vpc/aws"
-  version    = "0.18.0"
-  cidr_block = var.vpc_cidr_block
-  context    = module.this.context
+  source                  = "cloudposse/vpc/aws"
+  version                 = "2.1.1"
+  ipv4_primary_cidr_block = var.vpc_cidr_block
+  context                 = module.this.context
 }
 
 module "subnets" {
   source               = "cloudposse/dynamic-subnets/aws"
-  version              = "0.32.0"
+  version              = "2.4.2"
   availability_zones   = var.availability_zones
   vpc_id               = module.vpc.vpc_id
-  igw_id               = module.vpc.igw_id
-  cidr_block           = module.vpc.vpc_cidr_block
+  igw_id               = [module.vpc.igw_id]
+  ipv4_cidr_block      = [module.vpc.vpc_cidr_block]
   nat_gateway_enabled  = true
   nat_instance_enabled = false
   context              = module.this.context
@@ -28,7 +28,7 @@ resource "aws_ecs_cluster" "default" {
 
 module "container_definition" {
   source                       = "cloudposse/ecs-container-definition/aws"
-  version                      = "0.45.2"
+  version                      = "0.61.1"
   container_name               = var.container_name
   container_image              = var.container_image
   container_memory             = var.container_memory
