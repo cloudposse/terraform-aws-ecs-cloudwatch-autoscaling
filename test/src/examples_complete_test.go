@@ -76,7 +76,7 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	ecsExecRolePolicyName := terraform.Output(t, terraformOptions, "ecs_exec_role_policy_name")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-exec", ecsExecRolePolicyName)
+	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-exec-" + randID, ecsExecRolePolicyName)
 
 	// Run `terraform output` to get the value of an output variable
 	serviceName := terraform.Output(t, terraformOptions, "service_name")
@@ -93,35 +93,35 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	taskDefinitionFamily := terraform.Output(t, terraformOptions, "task_definition_family")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling", taskDefinitionFamily)
+	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-" + randID, taskDefinitionFamily)
 
 	// Run `terraform output` to get the value of an output variable
 	taskExecRoleName := terraform.Output(t, terraformOptions, "task_exec_role_name")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-" + randID + "-exec", taskExecRoleName)
+	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-exec-" + randID, taskExecRoleName)
 
 	// Run `terraform output` to get the value of an output variable
 	taskExecRoleArn := terraform.Output(t, terraformOptions, "task_exec_role_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-exec", taskExecRoleArn)
+	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-exec-" + randID, taskExecRoleArn)
 
 	// Run `terraform output` to get the value of an output variable
 	taskRoleName := terraform.Output(t, terraformOptions, "task_role_name")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-task", taskRoleName)
+	assert.Equal(t, "eg-test-ecs-cloudwatch-autoscaling-task-" + randID, taskRoleName)
 
 	// Run `terraform output` to get the value of an output variable
 	taskRoleArn := terraform.Output(t, terraformOptions, "task_role_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-" + randID + "-task", taskRoleArn)
+	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-task-" + randID, taskRoleArn)
 
 	// Run `terraform output` to get the value of an output variable
 	scaleUpPolicyArn := terraform.Output(t, terraformOptions, "scale_up_policy_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Contains(t, scaleUpPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-" + randID + "-up")
+	assert.Contains(t, scaleUpPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-up-" + randID)
 
 	// Run `terraform output` to get the value of an output variable
 	scaleDownPolicyArn := terraform.Output(t, terraformOptions, "scale_down_policy_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Contains(t, scaleDownPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-" + randID + "-down")
+	assert.Contains(t, scaleDownPolicyArn, "eg-test-ecs-cloudwatch-autoscaling-down-" + randID)
 }
