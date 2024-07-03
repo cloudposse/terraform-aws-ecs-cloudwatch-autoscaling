@@ -2,11 +2,11 @@ package test
 
 import (
 	"encoding/json"
-	"testing"
 	"strings"
+	"testing"
 
-	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/gruntwork-io/terratest/modules/random"
+	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -35,7 +35,7 @@ func TestExamplesComplete(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the value of an output variable
-	jsonMap := terraform.OutputJson(t, terraformOptions, "container_definition_json_map")
+	jsonMap := terraform.OutputRequired(t, terraformOptions, "container_definition_json_map")
 	// Verify we're getting back the outputs we expect
 	var jsonObject map[string]interface{}
 	err := json.Unmarshal([]byte(jsonMap), &jsonObject)
