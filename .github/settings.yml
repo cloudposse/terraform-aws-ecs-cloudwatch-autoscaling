@@ -5,3 +5,4 @@ repository:
   description: Terraform module to autoscale ECS Service based on CloudWatch metrics
   homepage: https://cloudposse.com/accelerate
   topics: autoscaling, autoscaler, autoscale, ecs, ecs-cluster, ecs-service, cloudwatch, hcl2
+
