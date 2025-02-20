@@ -33,9 +33,13 @@ resource "aws_appautoscaling_policy" "up" {
     cooldown                = var.scale_up_cooldown
     metric_aggregation_type = "Average"
 
-    step_adjustment {
-      metric_interval_lower_bound = 0
-      scaling_adjustment          = var.scale_up_adjustment
+    dynamic "step_adjustment" {
+      for_each = var.scale_up_step_adjustments
+      content {
+        metric_interval_lower_bound = lookup(step_adjustment.value, "metric_interval_lower_bound", null)
+        metric_interval_upper_bound = lookup(step_adjustment.value, "metric_interval_upper_bound", null)
+        scaling_adjustment          = step_adjustment.value.scaling_adjustment
+      }
     }
   }
 
@@ -54,9 +58,13 @@ resource "aws_appautoscaling_policy" "down" {
     cooldown                = var.scale_down_cooldown
     metric_aggregation_type = "Average"
 
-    step_adjustment {
-      metric_interval_upper_bound = 0
-      scaling_adjustment          = var.scale_down_adjustment
+    dynamic "step_adjustment" {
+      for_each = var.scale_down_step_adjustments
+      content {
+        metric_interval_lower_bound = lookup(step_adjustment.value, "metric_interval_lower_bound", null)
+        metric_interval_upper_bound = lookup(step_adjustment.value, "metric_interval_upper_bound", null)
+        scaling_adjustment          = step_adjustment.value.scaling_adjustment
+      }
     }
   }
 

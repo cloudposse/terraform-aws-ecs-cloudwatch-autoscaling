@@ -64,14 +64,14 @@ module "ecs_alb_service_task" {
 }
 
 module "ecs_cloudwatch_autoscaling" {
-  source                = "../../"
-  context               = module.this.context
-  cluster_name          = aws_ecs_cluster.default.name
-  service_name          = module.ecs_alb_service_task.service_name
-  min_capacity          = var.min_capacity
-  max_capacity          = var.max_capacity
-  scale_up_adjustment   = var.scale_up_adjustment
-  scale_up_cooldown     = var.scale_up_cooldown
-  scale_down_adjustment = var.scale_down_adjustment
-  scale_down_cooldown   = var.scale_down_cooldown
+  source                      = "../../"
+  context                     = module.this.context
+  cluster_name                = aws_ecs_cluster.default.name
+  service_name                = module.ecs_alb_service_task.service_name
+  min_capacity                = var.min_capacity
+  max_capacity                = var.max_capacity
+  scale_up_cooldown           = var.scale_up_cooldown
+  scale_down_cooldown         = var.scale_down_cooldown
+  scale_up_step_adjustments   = var.scale_up_step_adjustments
+  scale_down_step_adjustments = var.scale_down_step_adjustments
 }
