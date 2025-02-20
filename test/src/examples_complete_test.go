@@ -16,7 +16,7 @@ func TestExamplesComplete(t *testing.T) {
 
 	randID := strings.ToLower(random.UniqueId())
 	attributes := []string{randID}
-	
+
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: "../../examples/complete",
@@ -66,12 +66,12 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	ecsClusterId := terraform.Output(t, terraformOptions, "ecs_cluster_id")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:ecs:us-east-2:126450723953:cluster/eg-test-ecs-cloudwatch-autoscaling-" + randID, ecsClusterId)
+	assert.Equal(t, "arn:aws:ecs:us-east-2:799847381734:cluster/eg-test-ecs-cloudwatch-autoscaling-" + randID, ecsClusterId)
 
 	// Run `terraform output` to get the value of an output variable
 	ecsClusterArn := terraform.Output(t, terraformOptions, "ecs_cluster_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:ecs:us-east-2:126450723953:cluster/eg-test-ecs-cloudwatch-autoscaling-" + randID, ecsClusterArn)
+	assert.Equal(t, "arn:aws:ecs:us-east-2:799847381734:cluster/eg-test-ecs-cloudwatch-autoscaling-" + randID, ecsClusterArn)
 
 	// Run `terraform output` to get the value of an output variable
 	ecsExecRolePolicyName := terraform.Output(t, terraformOptions, "ecs_exec_role_policy_name")
@@ -103,7 +103,7 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	taskExecRoleArn := terraform.Output(t, terraformOptions, "task_exec_role_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-exec-" + randID, taskExecRoleArn)
+	assert.Equal(t, "arn:aws:iam::799847381734:role/eg-test-ecs-cloudwatch-autoscaling-exec-" + randID, taskExecRoleArn)
 
 	// Run `terraform output` to get the value of an output variable
 	taskRoleName := terraform.Output(t, terraformOptions, "task_role_name")
@@ -113,7 +113,7 @@ func TestExamplesComplete(t *testing.T) {
 	// Run `terraform output` to get the value of an output variable
 	taskRoleArn := terraform.Output(t, terraformOptions, "task_role_arn")
 	// Verify we're getting back the outputs we expect
-	assert.Equal(t, "arn:aws:iam::126450723953:role/eg-test-ecs-cloudwatch-autoscaling-task-" + randID, taskRoleArn)
+	assert.Equal(t, "arn:aws:iam::799847381734:role/eg-test-ecs-cloudwatch-autoscaling-task-" + randID, taskRoleArn)
 
 	// Run `terraform output` to get the value of an output variable
 	scaleUpPolicyArn := terraform.Output(t, terraformOptions, "scale_up_policy_arn")

@@ -131,22 +131,30 @@ variable "max_capacity" {
   description = "Maximum number of running instances of a Service"
 }
 
-variable "scale_up_adjustment" {
-  type        = number
-  description = "Scaling adjustment to make during scale up event"
-}
-
 variable "scale_up_cooldown" {
   type        = number
   description = "Period (in seconds) to wait between scale up events"
 }
 
-variable "scale_down_adjustment" {
-  type        = number
-  description = "Scaling adjustment to make during scale down event"
-}
-
 variable "scale_down_cooldown" {
   type        = number
   description = "Period (in seconds) to wait between scale down events"
+}
+
+variable "scale_up_step_adjustments" {
+  type = list(object({
+    metric_interval_lower_bound = optional(number)
+    metric_interval_upper_bound = optional(number)
+    scaling_adjustment          = number
+  }))
+  description = "List of step adjustments for scale up policy"
+}
+
+variable "scale_down_step_adjustments" {
+  type = list(object({
+    metric_interval_lower_bound = optional(number)
+    metric_interval_upper_bound = optional(number)
+    scaling_adjustment          = number
+  }))
+  description = "List of step adjustments for scale down policy"
 }

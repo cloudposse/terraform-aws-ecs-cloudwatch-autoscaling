@@ -79,13 +79,21 @@ container_port_mappings = [
 ]
 
 min_capacity = 1
-
 max_capacity = 2
 
-scale_up_adjustment = 1
-
-scale_up_cooldown = 60
-
-scale_down_adjustment = -1
-
+scale_up_cooldown   = 60
 scale_down_cooldown = 300
+
+scale_up_step_adjustments = [
+  {
+    metric_interval_lower_bound = 0
+    scaling_adjustment          = 1
+  }
+]
+
+scale_down_step_adjustments = [
+  {
+    metric_interval_upper_bound = 0
+    scaling_adjustment          = -1
+  }
+]

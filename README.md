@@ -37,7 +37,7 @@ Terraform module for creating alarms for tracking important changes and occurren
 >
 > <details>
 > <summary><strong>Watch demo of using Atmos with Terraform</strong></summary>
-> <img src="https://github.com/cloudposse/atmos/blob/master/docs/demo.gif?raw=true"/><br/>
+> <img src="https://github.com/cloudposse/atmos/blob/main/docs/demo.gif?raw=true"/><br/>
 > <i>Example of running <a href="https://atmos.tools"><code>atmos</code></a> to manage infrastructure from our <a href="https://atmos.tools/quick-start/">Quick Start</a> tutorial.</i>
 > </detalis>
 
@@ -140,10 +140,10 @@ For a complete usage example, see [terraform-aws-ecs-web-app module](https://git
 | <a name="input_name"></a> [name](#input\_name) | ID element. Usually the component or solution name, e.g. 'app' or 'jenkins'.<br/>This is the only ID element not also included as a `tag`.<br/>The "name" tag is set to the full `id` string. There is no tag with the value of the `name` input. | `string` | `null` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | ID element. Usually an abbreviation of your organization name, e.g. 'eg' or 'cp', to help ensure generated IDs are globally unique | `string` | `null` | no |
 | <a name="input_regex_replace_chars"></a> [regex\_replace\_chars](#input\_regex\_replace\_chars) | Terraform regular expression (regex) string.<br/>Characters matching the regex will be removed from the ID elements.<br/>If not set, `"/[^a-zA-Z0-9-]/"` is used to remove all characters other than hyphens, letters and digits. | `string` | `null` | no |
-| <a name="input_scale_down_adjustment"></a> [scale\_down\_adjustment](#input\_scale\_down\_adjustment) | Scaling adjustment to make during scale down event | `number` | `-1` | no |
 | <a name="input_scale_down_cooldown"></a> [scale\_down\_cooldown](#input\_scale\_down\_cooldown) | Period (in seconds) to wait between scale down events | `number` | `300` | no |
-| <a name="input_scale_up_adjustment"></a> [scale\_up\_adjustment](#input\_scale\_up\_adjustment) | Scaling adjustment to make during scale up event | `number` | `1` | no |
+| <a name="input_scale_down_step_adjustments"></a> [scale\_down\_step\_adjustments](#input\_scale\_down\_step\_adjustments) | List of step adjustments for scale down policy | <pre>list(object({<br/>    metric_interval_lower_bound = optional(number)<br/>    metric_interval_upper_bound = optional(number)<br/>    scaling_adjustment          = number<br/>  }))</pre> | <pre>[<br/>  {<br/>    "metric_interval_lower_bound": null,<br/>    "metric_interval_upper_bound": 0,<br/>    "scaling_adjustment": -1<br/>  }<br/>]</pre> | no |
 | <a name="input_scale_up_cooldown"></a> [scale\_up\_cooldown](#input\_scale\_up\_cooldown) | Period (in seconds) to wait between scale up events | `number` | `60` | no |
+| <a name="input_scale_up_step_adjustments"></a> [scale\_up\_step\_adjustments](#input\_scale\_up\_step\_adjustments) | List of step adjustments for scale up policy | <pre>list(object({<br/>    metric_interval_lower_bound = optional(number)<br/>    metric_interval_upper_bound = optional(number)<br/>    scaling_adjustment          = number<br/>  }))</pre> | <pre>[<br/>  {<br/>    "metric_interval_lower_bound": 0,<br/>    "metric_interval_upper_bound": null,<br/>    "scaling_adjustment": 1<br/>  }<br/>]</pre> | no |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | The name of the ECS Service to autoscale | `string` | n/a | yes |
 | <a name="input_stage"></a> [stage](#input\_stage) | ID element. Usually used to indicate role, e.g. 'prod', 'staging', 'source', 'build', 'test', 'deploy', 'release' | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags (e.g. `{'BusinessUnit': 'XYZ'}`).<br/>Neither the tag keys nor the tag values will be modified by this module. | `map(string)` | `{}` | no |
@@ -286,7 +286,7 @@ All other trademarks referenced herein are the property of their respective owne
 
 
 ---
-Copyright © 2017-2024 [Cloud Posse, LLC](https://cpco.io/copyright)
+Copyright © 2017-2025 [Cloud Posse, LLC](https://cpco.io/copyright)
 
 
 <a href="https://cloudposse.com/readme/footer/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-ecs-cloudwatch-autoscaling&utm_content=readme_footer_link"><img alt="README footer" src="https://cloudposse.com/readme/footer/img"/></a>
