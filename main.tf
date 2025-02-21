@@ -19,6 +19,7 @@ resource "aws_appautoscaling_target" "default" {
   scalable_dimension = "ecs:service:DesiredCount"
   min_capacity       = var.min_capacity
   max_capacity       = var.max_capacity
+  tags               = module.this.tags
 }
 
 resource "aws_appautoscaling_policy" "up" {
