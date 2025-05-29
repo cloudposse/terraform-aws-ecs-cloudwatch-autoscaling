@@ -3,7 +3,7 @@
 <!-- markdownlint-disable -->
 <a href="https://cpco.io/homepage"><img src="https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/blob/main/.github/banner.png?raw=true" alt="Project Banner"/></a><br/>
     <p align="right">
-<a href="https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://slack.cloudposse.com"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
+<a href="https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-aws-ecs-cloudwatch-autoscaling.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://cloudposse.com/slack"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
 <!-- markdownlint-restore -->
 
 <!--
@@ -46,7 +46,6 @@ Terraform module for creating alarms for tracking important changes and occurren
 
 
 ## Usage
-
 
 For a complete example, see [examples/complete](examples/complete).
 
@@ -156,6 +155,11 @@ For a complete usage example, see [terraform-aws-ecs-web-app module](https://git
 | <a name="output_scale_down_policy_arn"></a> [scale\_down\_policy\_arn](#output\_scale\_down\_policy\_arn) | ARN of the scale down policy |
 | <a name="output_scale_up_policy_arn"></a> [scale\_up\_policy\_arn](#output\_scale\_up\_policy\_arn) | ARN of the scale up policy |
 <!-- markdownlint-restore -->
+
+
+
+
+
 
 
 ## Related Projects
